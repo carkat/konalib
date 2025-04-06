@@ -10,3 +10,4 @@ K CloseWindow_kffi      (K a){ CloseWindow(); R(gi(1)); }
 K BeginDrawing_kffi   (K a){ BeginDrawing();R(gi(1)); }
 K EndDrawing_kffi     (K a){ EndDrawing();R(gi(1)); }
 K ClearBackground_kffi(K a){ ClearBackground(color(a));R(gi(1)); }
+K DrawText_kffi       (K s,K i,K j,K l,K c){ DrawText(KC(s),Ki(i),Ki(j),Ki(l),color(c));R(gi(1)); }
