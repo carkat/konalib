@@ -12,5 +12,8 @@ Certain files in the kona project need edits in order to build correctly
 Those edits are stored in `./extern` and copied during `make install`
 
 
+# Credits
+
+Thanks to 'Bakul Shah' in the [Kona-User Mailing List](https://groups.google.com/g/kona-user) for the timely and correct response. 
 
 
