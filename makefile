@@ -1,6 +1,8 @@
 FILE=t.c # test
 KONA=https://github.com/kevinlawler/kona
 
+.DEFAULT_GOAL := build
+default:build
 
 install: 
 	make kona
