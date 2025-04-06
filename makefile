@@ -7,9 +7,10 @@ install:
 
 build:
 	make t.so
+	./run
 
 t.so:$(FILE)
-	$(CC) $^  -I./inc -L./lib -o ./obj/$@ -shared -fPIC -lkona
+	$(CC) $^  -I./inc -L./lib -o ./obj/$@ -shared -fPIC 
 
 kona:
 	# clone and make kona
