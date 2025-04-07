@@ -1,0 +1,40 @@
+$ make
+OS="mingw64_nt-10.0-26100"
+make t.so
+make[1]: Entering directory ./konalib'
+OS="mingw64_nt-10.0-26100"
+zig cc -target x86_64-windows  t.c  -I./inc -L./lib -o ./lib/t.so -shared -fPIC -lc #-lraylib
+lld-link: error: undefined symbol: newK
+>>> referenced by konalib\inc\kapi.c:23
+
+>>> referenced by konalib\inc\kapi.c:24
+
+>>> referenced by konalib\inc\kapi.c:25
+
+>>> referenced 3 more times
+
+lld-link: error: undefined symbol: sp
+>>> referenced by konalib\inc\kapi.c:39
+
+lld-link: error: undefined symbol: _jd
+>>> referenced by konalib\inc\kapi.c:41
+>>> referenced by konalib\inc\kapi.c:42
+
+lld-link: error: undefined symbol: cd
+>>> referenced by konalib\inc\kapi.c:41
+
+>>> referenced by konalib\inc\kapi.c:41
+
+>>> referenced by konalib\inc\kapi.c:42
+
+>>> referenced 1 more times
+
+lld-link: error: undefined symbol: kinit
+>>> referenced by konalib\inc\kapi.c:58
+
+lld-link: error: undefined symbol: X
+>>> referenced by konalib\inc\kapi.c:59
+make[1]: *** [makefile:27: t.so] Error 1
+make[1]: Leaving directory './konalib'
+make: *** [makefile:12: build] Error 2
+
