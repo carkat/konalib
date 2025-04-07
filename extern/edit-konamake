@@ -8,15 +8,17 @@ OS := $(shell uname -s | tr "[:upper:]" "[:lower:]")
 $(info OS="$(OS)")
 
 # Win-64
-ifeq (mingw64_nt-10.0-22000,$(OS))
-CC=gcc -DWIN32=1
+ifeq (mingw64_nt-10.0-26100,$(OS))
+AR=zig ar
+CC=zig cc -target x86_64-windows #gcc -DWIN32=1
 PRODFLAGS += -D_FILE_OFFSET_BITS=64
-LDFLAGS = -lws2_32 -static -lpthread
+#LDFLAGS = -lws2_32 -static -lpthread -Wl,-export-dynamic
+LDFLAGS = -lws2_32 -shared -lpthread -Wl,-export-dynamic
 OBJS= src/win/mman.o src/win/dlfcn.o src/win/safe-ctype.o src/win/fnmatch.o \
 			src/win/pread.o src/win/usleep.o \
       src/0.o src/bswap.o src/c.o src/getline.o src/mt.o src/p.o \
       src/r.o src/k.o src/kc.o src/kx.o src/kg.o src/km.o src/kn.o src/ko.o \
-      src/ks.o src/v.o src/va.o src/vc.o src/vd.o src/vf.o src/vg.o src/vq.o
+      src/ks.o src/v.o src/va.o src/vc.o src/vd.o src/vf.o src/vg.o src/vq.o src/kapi.o
 endif
 
 # Win-32
@@ -154,7 +156,7 @@ TAGS: *.c *.h
 .PHONY: all clean install android-debug
 
 # Dependencies.
-ifeq (mingw64_nt-10.0,$(OS))
+ifeq (mingw64_nt-10.0-26100,$(OS))
 src/win/dlfcn.c: src/win/dlfcn.h
 src/win/mman.c: src/win/mman.h
 src/win/safe-ctype.c: src/win/safe-ctype.h
