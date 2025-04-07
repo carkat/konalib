@@ -1,7 +1,16 @@
 FILE=t.c # test
 KONA=https://github.com/kevinlawler/kona
+OS := $(shell uname -s | tr "[:upper:]" "[:lower:]")
+$(info OS="$(OS)")
+# Win-64
+ifeq (mingw64_nt-10.0-26100,$(OS))
+AR=zig ar
+CC=zig cc -target x86_64-windows #gcc -DWIN32=1
+endif
+
 
 .DEFAULT_GOAL := build
+
 default:build
 
 install: 
@@ -10,8 +19,6 @@ install:
 build:
 	make t.so
 	./run
-
-
 
 t.so:$(FILE)
 	$(CC) $^  -I./inc -L./lib -o ./lib/$@ -shared -fPIC -lc 
