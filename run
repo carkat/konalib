@@ -1,2 +1,2 @@
 #!/bin/sh
-LD_LIBRARY_PATH=./lib ./k ./t.k
+LD_LIBRARY_PATH=./lib ./k ./main.k

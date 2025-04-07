@@ -1,4 +1,4 @@
-FILE=t.c # test
+FILE=ffi.c # test
 KONA=https://github.com/kevinlawler/kona
 
 .DEFAULT_GOAL := build
